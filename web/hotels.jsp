@@ -18,7 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body class="custom_image_bg">
     
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -51,13 +51,13 @@
     
      <section id="services" class="services bg-primary">
          <div class="container">
-             
+             <img src= "img/mylogo.png" class="img-responsive" /> 
              
          </div>
      </section>
-    
+     
      <% 
-               String hostname = "localhost";
+            String hostname = "localhost";
             String port = "3306";
             String dbname = "user_login";
             String username = "root";
@@ -72,34 +72,76 @@
             String id = request.getParameter("id");  
 
             ResultSet rs = st.executeQuery("select * from info");
-           
+           boolean val = true;
+            
             ResultSetMetaData rsm = rs.getMetaData();
            while (rs.next()) {
         //   out.println(rs.getString("uname")); 
           // out.println(rs.getString("pass")); 
            //s=rs.getString("uname");
                 
-                    
-                
-              %>
-            
+             if(val==true){
+                 
+             %>
              
-              <table class="center_align">
-                  <tr><td> <img src="${pageContext.request.contextPath}/<%= rs.getString("image")%>"/></td></tr>
+             
+             
+    
+     <div class="col-lg-2 custom_content"> 
+         <h2>Popular Categories</h2>
+                <ul class="navs">
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Coffee Shops</a></li>
+                    <li><a href="#">Banks</a></li>
+                    <li><a href="#">Taxi Service</a></li>
+                    <li><a href="#">University</a></li>
+                    <li><a href="#">Hospitals</a></li>
+                    <li><a href="#">Shopping</a></li>
+                    <li><a href="#">Bus Service</a></li>
+                    <li><a href="#">Cinema</a></li>
+                    <li><a href="#">Child Care</a></li>
+                    <li><a href="#">Phone Services</a></li>
+                    <li><a href="#">Emergency Services</a></li>
+                  </ul>  
+              
+              </div>         
+             
+             
+             <%
+                 val = false;
+             }   
+              %>
+    
+              
+              <div class="container-fluid description ">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img class="img-responsive" src="${pageContext.request.contextPath}/<%= rs.getString("image")%>"/>
+                </div>
+                
+                <div class="col-lg-4 col-md-8 col-sm-4 detail  ">
+                    <p><h2><%= rs.getString("biz_name")%><br></h2>
+                        <%= rs.getString("address")%><br>
+                        <%= rs.getString("first_name")%><br>
+                        <%= rs.getString("email")%><br>
+                    <%= rs.getString("contact_no")%></p>
+                </div>
+                
+<!--              <table class="center_align">
+                  <tr><td> </td></tr>
                   <tr><td><b><%= rs.getString("biz_name")%></b></td></tr>
-                  <tr><th>doifgjkdjhfglkxhdgjkdh;gh;dfg
-                  dfglkdfgkdhgkjdhlkjgdfh
-                  dfh
-                  dhghdjioxfujdjfk</th></tr>
                   <tr><td><%= rs.getString("address")%></td></tr>
                   <tr><td><%= rs.getString("first_name")%></td></tr>
                   <tr><td><%= rs.getString("last_name")%></td></tr>
                   <tr><td><%= rs.getString("email")%></td></tr>
                   <tr><td><%= rs.getString("contact_no")%></td></tr>
                   <hr class="center_align"> 
-               </table>
-              
-              
+               </table>-->
+              </div>
+                  <hr>
+
+             </div>
+              </div> 
               <%
               //  out.println("welcome " + rs.getString("uname"));
               //  out.println("<a href='logout.jsp'>Log out</a>");
