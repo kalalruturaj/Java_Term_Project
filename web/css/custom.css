@@ -8,6 +8,25 @@ and open the template in the editor.
     Author     : Ruturaj
 */
 
+.navs{
+    list-style: none;
+}
+section{
+    height: 90px;
+}
+section img{
+    margin-top: 0px;
+}
+.custom_image_bg{
+    background-image: url("../img/bg.png");
+}
+.navs,.description{
+    margin-top: 50px;
+}
+.custom_detail{
+    margin-right: 110px;
+}
+
 .center_align{
     margin-left: 550px;
         
@@ -17,4 +36,14 @@ and open the template in the editor.
 }
 .custom_margin{
  
+}
+.description{
+    margin-left: 300px;
+    margin-bottom: 30px;
+    font-family: 'Lora', serif;
+}
+.detail{
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: center;
 }
